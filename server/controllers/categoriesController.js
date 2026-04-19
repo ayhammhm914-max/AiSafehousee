@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 exports.getAll = async (req, res) => {
   try {
-    const [rows] = await db.query('SELECT * FROM Categories');
+    const [rows] = await db.query('SELECT * FROM categories ORDER BY name ASC');
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: err.message });

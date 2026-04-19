@@ -1,14 +1,31 @@
-{
-  "name": "ai-safehouse",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+﻿{
+    "name":  "ai-safehouse",
+    "version":  "1.0.0",
+    "description":  "",
+    "main":  "index.js",
+    "scripts":  {
+                    "test":  "echo \"Error: no test specified\" \u0026\u0026 exit 1",
+                    "start":  "node index.js",
+                    "dev":  "node --watch index.js",
+                    "migrate:auth":  "node scripts/runAuthMigration.js",
+                    "migrate:aimaster":  "node scripts/runAiMasterMigration.js",
+                    "sync:catalog":  "node scripts/syncExpandedCatalog.js"
+                },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "type":  "commonjs",
+    "dependencies":  {
+                         "bcryptjs":  "^3.0.3",
+                         "cookie-parser":  "^1.4.7",
+                         "cors":  "^2.8.6",
+                         "dotenv":  "^17.4.2",
+                         "express":  "^5.2.1",
+                         "helmet":  "^8.1.0",
+                         "jose":  "^6.2.2",
+                         "jsonwebtoken":  "^9.0.3",
+                         "mysql2":  "^3.22.1"
+                     }
 }

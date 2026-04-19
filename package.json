@@ -1,11 +1,12 @@
-{
+﻿{
   "name": "ai-safehouse-root",
   "private": true,
   "scripts": {
-    "dev": "npm --prefix ai-safehouse/client run dev",
+    "dev": "node scripts/dev-runner.cjs",
     "client": "npm --prefix ai-safehouse/client run dev",
+    "server": "npm --prefix server run dev",
     "build": "npm --prefix ai-safehouse/client run build",
-    "server": "npx nodemon server/index.js"
+    "build:client": "npm --prefix ai-safehouse/client run build"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

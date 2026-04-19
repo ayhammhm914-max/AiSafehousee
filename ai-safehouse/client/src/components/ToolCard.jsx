@@ -1,5 +1,9 @@
 export default function ToolCard({ tool, isActive, isMuted, onHoverStart, onHoverEnd }) {
   const rating = Number(tool.avg_rating || 0).toFixed(1)
+  const fallbackLogo = `https://ui-avatars.com/api/?name=${encodeURIComponent(tool.name)}&background=0f172a&color=7dd3fc`
+  const derivedLogo = tool.website_url
+    ? `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(tool.website_url)}`
+    : fallbackLogo
 
   return (
     <div
@@ -16,9 +20,13 @@ export default function ToolCard({ tool, isActive, isMuted, onHoverStart, onHove
       <div className="relative z-10 flex items-start gap-4">
         <div className="rounded-2xl border border-cyan-400/15 bg-slate-950/70 p-3 shadow-lg shadow-cyan-950/30 transition duration-300 group-hover:scale-110 group-hover:border-cyan-400/40">
           <img
-            src={tool.logo_url || `https://ui-avatars.com/api/?name=${tool.name}&background=0f172a&color=7dd3fc`}
+            src={tool.logo_url || derivedLogo}
             alt={tool.name}
             className="h-14 w-14 rounded-xl object-cover transition duration-300 group-hover:scale-110"
+            onError={event => {
+              event.currentTarget.onerror = null
+              event.currentTarget.src = fallbackLogo
+            }}
           />
         </div>
 
